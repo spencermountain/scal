@@ -40,7 +40,7 @@ const toUnicode = function (res, obj) {
       txt += '■' + _
       return
     })
-    txt = txt.trim()
+    txt = txt.trimEnd()
     txt += '\n'
   })
   console.log(txt)
