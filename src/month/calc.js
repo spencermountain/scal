@@ -1,23 +1,22 @@
+const getWeek = function (d) {
+  let start = d.startOf('week')
+  let end = start.endOf('week')
+  let days = [start].concat(start.every('day', end))
+  // days.forEach(d => console.log('  ' + d.format('nice-day') + d.day()))
+  return days
+}
+
 // create all day objects
 const calculate = function (res) {
   let date = res.start.clone()
   let start = date.startOf('month')
-  let monday = start.startOf('week').minus(1, 'second')
-
-  let weeks = []
-  let d = monday
-  for (let w = 0; w < 6; w += 1) {
-    let week = []
-    for (let i = 0; i < 7; i += 1) {
-      week.push(d)
-      d = d.add(1, 'day')
-    }
-    weeks.push(week)
-    let sunday = week[week.length - 1]
-    if (sunday.isSame(start, 'month') === false) {
-      return weeks
-    }
-  }
+  let end = date.endOf('month')
+  let weeks = [getWeek(start)]
+  start.every('week', end).forEach(mon => {
+    // console.log('---' + mon.format('nice-day') + '---')
+    weeks.push(getWeek(mon))
+  })
   return weeks
 }
+
 export default calculate

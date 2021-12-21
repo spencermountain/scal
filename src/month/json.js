@@ -5,11 +5,13 @@ const toJSON = function (res, obj) {
       return {
         empty: !d.isSame('month', obj.start),
         iso: d.format('iso-short'),
-        selected: d.isBetween(obj.start, obj.end),
-        weekend: day === 5 || day === 6
+        date: d.date(),
+        selected: d.isBetween(obj.start, obj.end, true),
+        weekend: day === 6 || day === 0
       }
     })
   })
-  console.log(JSON.stringify(json, null, 2))
+  return json
+  // console.log(JSON.stringify(json, null, 2))
 }
 export default toJSON
