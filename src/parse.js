@@ -10,7 +10,7 @@ const parseDate = function (str) {
 		s = spacetime.now()
 	}
 	// for now, assume one day
-	let end = s.clone().add(1, 'day')
+	let end = s.clone().add(1, 'day').minus(1, 'second')
 	return { start: s, end: end }
 }
 

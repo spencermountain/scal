@@ -18,7 +18,8 @@ const pad = num => String(num).padStart(2, ' ')
 
 const toCLI = function (res, obj) {
   let json = toJSON(res, obj)
-  let str = `    December 2021\n`
+  let s = res[0][6]
+  let str = `\n    ${s.format('{month} {year}')}\n`
   str += cli.dim(' Mo Tu We Th Fr Sa Su\n')
   // print the days
   json.forEach(days => {
@@ -26,14 +27,14 @@ const toCLI = function (res, obj) {
       if (obj.empty === true) {
         str += '   '
       } else if (obj.selected) {
-        console.log(obj)
-        str += ' ' + pad(cli.blue(obj.date))
+        str += ' ' + cli.blue(pad(obj.date))
       } else {
         str += ' ' + pad(obj.date)
       }
     })
     str += '\n'
   })
-  console.log('\n' + str)
+  str += '\n'
+  return str
 }
 export default toCLI

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import scal from './src/index.js'
 
-let input = process.argv.slice(2)
+let input = process.argv.slice(2).join(' ')
 let res = scal(input)
-console.log(JSON.stringify(res, null, 2))
+console.log(res)

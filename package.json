@@ -15,6 +15,9 @@
       "default": "./builds/scal.js"
     }
   },
+  "bin": {
+    "scal": "cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/spencermountain/scal.git"

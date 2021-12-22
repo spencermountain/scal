@@ -14,6 +14,7 @@ const fmt = {
 }
 
 const src = function (input, opt = {}) {
+  input = input || ''
   let opts = minimist(input.split(/ /), { alias })
   Object.assign(opts, opt)
   let str = opts._.join(' ')
