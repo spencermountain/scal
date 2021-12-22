@@ -2,7 +2,7 @@
   "name": "scal",
   "author": "Spencer Kelly <spencermountain@gmail.com> (http://spencermounta.in)",
   "description": "calendar output",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./src/index.js",
   "unpkg": "./builds/scal.js",
   "module": "./builds/scal.mjs",
