@@ -1,5 +1,6 @@
 import parse from './parse.js'
-import minimist from 'minimist'
+// import minimist from 'minimist'
+import parseCLI from './parseCLI.js'
 import month from './month/index.js'
 
 const alias = {
@@ -15,7 +16,7 @@ const fmt = {
 
 const src = function (input, opt = {}) {
   input = input || ''
-  let opts = minimist(input.split(/ /), { alias })
+  let opts = parseCLI(input, { alias })
   Object.assign(opts, opt)
   let str = opts._.join(' ')
   // start-end dates
